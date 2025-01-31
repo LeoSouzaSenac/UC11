@@ -139,3 +139,92 @@ Aqui estão os casos de teste para as funcionalidades **Adicionar Tarefa**, **Ed
 ---
 
 Esses casos de teste são exemplos simples, mas a ideia é que você os crie de acordo com os requisitos do sistema, garantindo que cada funcionalidade importante seja verificada de forma sistemática e clara.
+
+
+---
+
+# 📌 Documentação de Resultados dos Casos de Teste
+
+## 📖 Introdução
+Após a execução de um caso de teste, é fundamental documentar os resultados para garantir rastreabilidade e acompanhamento do desempenho do sistema. Essa documentação pode ser feita no próprio documento de casos de teste ou em um relatório separado, dependendo da complexidade do projeto e das práticas da equipe de QA (Quality Assurance), ou Garantia da Qualidade.
+
+---
+
+## 📌 Onde Documentar os Resultados?
+
+- **No próprio documento de casos de teste**: Quando os testes são simples e não necessitam de um acompanhamento extenso.
+- **Em um documento separado (Relatório de Execução de Testes)**: Quando há um grande volume de testes ou quando a análise detalhada dos erros e evidências se faz necessária.
+
+---
+
+## 📌 Como Documentar os Resultados dos Testes
+
+Cada caso de teste deve ter um campo para registrar os resultados da execução. A estrutura básica inclui:
+
+1. **Resultado Real**: O que realmente aconteceu ao executar o teste.
+2. **Status do Teste**:
+   - ✅ **Passou**: O resultado real corresponde ao esperado.
+   - ❌ **Falhou**: O resultado real difere do esperado.
+3. **Evidências**: Capturas de tela, logs ou outras informações que possam ser úteis.
+4. **Comentários**: Notas adicionais para análise, incluindo causas possíveis e sugestões de correção.
+
+---
+
+## 📌 Exemplo de Documentação no Documento de Casos de Teste
+
+```markdown
+# Casos de Teste - Aplicativo TaskMaster
+
+## 1. Caso de Teste: Adicionar Tarefa
+- **ID**: CT01
+- **Descrição**: Verificar se o usuário consegue adicionar uma nova tarefa corretamente.
+- **Pré-condições**: O aplicativo está aberto e o usuário está na tela de adicionar tarefa.
+- **Entradas**:
+  - Título da tarefa: "Comprar leite"
+  - Descrição da tarefa: "Ir ao mercado e comprar leite"
+- **Passos**:
+  1. Na tela de tarefas, clicar no botão "Adicionar Tarefa".
+  2. Preencher o título e a descrição da tarefa.
+  3. Clicar no botão "Salvar".
+- **Resultado Esperado**: A tarefa "Comprar leite" deve aparecer na lista de tarefas com a descrição correta.
+
+### 📌 Resultado da Execução
+- **Resultado Real**: A tarefa foi adicionada corretamente e apareceu na lista de tarefas.
+- **Status**: ✅ Passou
+- **Evidências**: ![Captura de tela](caminho_para_imagem.png)
+- **Comentários**: Teste realizado no Android 12, sem erros encontrados.
+```
+
+---
+
+## 📌 Exemplo de Relatório de Execução de Testes Separado
+
+Se a equipe optar por um documento separado, ele pode ser estruturado assim:
+
+```markdown
+# 📋 Relatório de Execução de Testes - Aplicativo TaskMaster
+
+## 🗓️ Data da Execução: 31/01/2025
+## 👤 Testador: João Silva
+## 🏷️ Versão Testada: 1.2.0
+
+### 🔹 Resumo dos Testes
+| ID do Caso | Descrição                   | Status  | Evidência              | Comentários |
+|-----------|-----------------------------|---------|------------------------|-------------|
+| CT01      | Adicionar Tarefa            | ✅ Passou | [Ver imagem](#)        | Teste sem erros |
+| CT02      | Editar Tarefa               | ❌ Falhou | [Ver imagem](#)        | Botão "Salvar" não funciona |
+| CT03      | Excluir Tarefa              | ✅ Passou | [Ver imagem](#)        | Ok |
+
+### 🔹 Análise das Falhas
+- **CT02 - Editar Tarefa**
+  - **Erro encontrado**: O botão "Salvar" não responde ao clique.
+  - **Impacto**: Usuário não pode editar tarefas.
+  - **Recomendação**: Reportar bug para a equipe de desenvolvimento e retestar após correção.
+```
+
+---
+
+## 📌 Conclusão
+A documentação dos resultados dos testes é essencial para garantir um histórico detalhado da qualidade do software. Escolher entre registrar os resultados no próprio documento de casos de teste ou em um relatório separado depende do contexto do projeto. O mais importante é manter as informações organizadas e acessíveis para facilitar correções e melhorias no sistema.
+
+
