@@ -38,7 +38,7 @@ Aqui estão os casos de teste para as funcionalidades **Adicionar Tarefa**, **Ed
 
 ### Casos de Teste em Markdown
 
-```markdown
+
 # Casos de Teste - TaskMaster
 
 ## 1. Caso de Teste: Adicionar Tarefa
@@ -104,7 +104,7 @@ Aqui estão os casos de teste para as funcionalidades **Adicionar Tarefa**, **Ed
 - **Resultado Esperado**: Todas as tarefas devem ser exibidas corretamente na lista.
 - **Resultado Real**: [Preenchido após execução do teste]
 - **Status do Teste**: [Passou/Falhou]
-```
+
 
 ---
 
