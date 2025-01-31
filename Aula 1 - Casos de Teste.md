@@ -172,7 +172,7 @@ Cada caso de teste deve ter um campo para registrar os resultados da execução.
 
 ## 📌 Exemplo de Documentação no Documento de Casos de Teste
 
-```markdown
+
 # Casos de Teste - Aplicativo TaskMaster
 
 ## 1. Caso de Teste: Adicionar Tarefa
@@ -193,7 +193,7 @@ Cada caso de teste deve ter um campo para registrar os resultados da execução.
 - **Status**: ✅ Passou
 - **Evidências**: ![Captura de tela](caminho_para_imagem.png)
 - **Comentários**: Teste realizado no Android 12, sem erros encontrados.
-```
+
 
 ---
 
@@ -201,7 +201,7 @@ Cada caso de teste deve ter um campo para registrar os resultados da execução.
 
 Se a equipe optar por um documento separado, ele pode ser estruturado assim:
 
-```markdown
+
 # 📋 Relatório de Execução de Testes - Aplicativo TaskMaster
 
 ## 🗓️ Data da Execução: 31/01/2025
@@ -220,7 +220,7 @@ Se a equipe optar por um documento separado, ele pode ser estruturado assim:
   - **Erro encontrado**: O botão "Salvar" não responde ao clique.
   - **Impacto**: Usuário não pode editar tarefas.
   - **Recomendação**: Reportar bug para a equipe de desenvolvimento e retestar após correção.
-```
+
 
 ---
 
