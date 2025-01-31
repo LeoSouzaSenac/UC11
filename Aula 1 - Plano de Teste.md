@@ -34,7 +34,26 @@ Um plano de teste geralmente contém as seguintes seções:
 
 ## Exemplo de Plano de Teste para um Aplicativo Fictício
 
-Aqui está o plano de teste para o aplicativo **TaskMaster** (um gerenciador de tarefas). Vou fornecer o conteúdo em formato **Markdown**.
+Aqui está o plano de teste para o aplicativo **TaskMaster** (um gerenciador de tarefas). Ele é um aplicativo simples de gerenciamento de tarefas que permite aos usuários criar, editar, marcar como concluída e excluir tarefas.
+
+### **Antes de planejar os testes, é necessário ter definido os requisitos do software**  
+
+#### 🔍 **O que são requisitos?**  
+Os **requisitos** são especificações que descrevem o que um sistema deve fazer. Eles podem ser **funcionais** (ações específicas do software) e **não funcionais** (requisitos de desempenho, segurança, usabilidade, etc.).  
+
+#### 📌 **Importância dos Requisitos no Planejamento de Testes:**  
+1. **Evita erros no desenvolvimento**: Testar sem requisitos bem definidos pode levar a testes incompletos ou equivocados.  
+2. **Garante que todas as funcionalidades sejam verificadas**: Com base nos requisitos, os testadores podem criar casos de teste detalhados.  
+3. **Facilita a identificação de problemas**: Se um requisito não for atendido, é possível rapidamente identificar e corrigir o erro.  
+4. **Melhora a qualidade do software**: O planejamento de testes baseado em requisitos garante que o sistema entregue o que foi proposto.  
+
+🔹 **Exemplo:**  
+Se o requisito funcional do **TaskMaster** diz que o usuário deve poder **editar o título de uma tarefa**, um teste específico será planejado para garantir que essa funcionalidade realmente funcione. Sem essa definição, poderia passar despercebido um erro onde o usuário não consegue salvar alterações.  
+
+---
+
+Com os requisitos bem definidos, podemos planejar os **testes** adequados para o **TaskMaster**, garantindo que o aplicativo funcione corretamente e atenda às expectativas dos usuários.
+
 
 ### Plano de Teste do TaskMaster
 
@@ -63,8 +82,8 @@ O objetivo deste plano de teste é garantir que o aplicativo **TaskMaster** func
 - **Visualizar Tarefas**: O usuário deve ver uma lista de tarefas atualizada corretamente.
 
 ## 4. Estratégia de Teste
-- **Testes Manuais**: Serão realizados para verificar a funcionalidade de criação, edição, exclusão e visualização de tarefas.
-- **Testes de Interface de Usuário (UI)**: Serão realizados para garantir que os elementos da interface respondam corretamente às ações do usuário.
+- **Testes Manuais** (testes executados manualmente, sem automação): Serão realizados para verificar a funcionalidade de criação, edição, exclusão e visualização de tarefas.
+- **Testes de Interface de Usuário (UI)** (verificam se a interface gráfica de um aplicativo ou sistema funciona corretamente e está de acordo com os requisitos de design e usabilidade): Serão realizados para garantir que os elementos da interface respondam corretamente às ações do usuário.
 
 ### Tipos de Testes:
 - **Testes Funcionais**: Para verificar se as funcionalidades estão funcionando como esperado.
