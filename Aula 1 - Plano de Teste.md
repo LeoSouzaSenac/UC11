@@ -57,7 +57,7 @@ Com os requisitos bem definidos, podemos planejar os **testes** adequados para o
 
 ### Plano de Teste do TaskMaster
 
-```markdown
+
 # Plano de Teste - TaskMaster
 
 ## 1. Objetivo dos Testes
@@ -122,7 +122,7 @@ O objetivo deste plano de teste é garantir que o aplicativo **TaskMaster** func
   
 - **Risco**: A interface de usuário pode não ser responsiva em dispositivos com resoluções de tela menores.
   **Mitigação**: Incluir testes em dispositivos com diferentes tamanhos de tela.
-```
+
 
 ---
 
