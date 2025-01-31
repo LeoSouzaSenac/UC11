@@ -117,24 +117,22 @@ Artefatos de teste são **documentos e evidências** que ajudam a planejar, exec
 
 ---
 
-## 4. Atividade Prática
+## 4. Exemplo
 
-### Dinâmica: "Encontre o Bug!"
-
-1. **Divida a turma em grupos de 3 ou 4 alunos.**  
-2. Apresente este trecho de código em Java, que tem um erro:
-   
+  
    ```java
    public class Calculadora {
        public int somar(int a, int b) {
-           return a - b; // Tem um erro aqui!
+           return a - b; 
+       }
+
+    public int divisao (int a, int b) {
+            return a / b;
        }
    }
    ```
-   
-3. **Pergunta para os grupos:** O que está errado nesse código?
-4. Peça que os alunos expliquem como corrigir o erro.
-5. Conclusão: Mostre como um pequeno erro pode levar a uma falha no sistema.
+
+  
 
 ---
 
