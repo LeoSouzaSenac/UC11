@@ -22,14 +22,6 @@ dependencies {
 }
 ```
 
-3. Salve o arquivo e execute o comando de atualização no terminal do NetBeans:  
-
-```sh
-./gradlew build
-```
-
-Isso garantirá que todas as dependências sejam baixadas corretamente.
-
 ---
 
 ### **Passo 3: Criar a Estrutura de Testes**  
