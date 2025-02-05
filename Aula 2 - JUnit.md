@@ -25,16 +25,25 @@ Marca um método como um teste unitário.
 
 ```java
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
-public class CalculadoraTest {
+class ContaBancariaTest {
+
     @Test
-    public void testSomar() {
-        Calculadora calc = new Calculadora();
-        int resultado = calc.somar(2, 3);
-        assertEquals(5, resultado);
+    void testDeposito() {
+        ContaBancaria conta = new ContaBancaria(1000); // Saldo inicial
+        conta.depositar(500);
+        assertEquals(1500, conta.getSaldo(), "O saldo deve ser 1500 após o depósito.");
+    }
+
+    @Test
+    void testSaque() {
+        ContaBancaria conta = new ContaBancaria(1000);
+        conta.sacar(200);
+        assertEquals(800, conta.getSaldo(), "O saldo deve ser 800 após o saque.");
     }
 }
+
 ```
 
 #### @BeforeEach
@@ -43,15 +52,31 @@ Executa um código **antes de cada teste**, ideal para inicializar objetos.
 
 ```java
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
-public class CalculadoraTest {
-    private Calculadora calc;
+class ContaBancariaTest {
+
+    private ContaBancaria conta;
 
     @BeforeEach
-    public void setUp() {
-        calc = new Calculadora();
+    void setUp() {
+        conta = new ContaBancaria(1000); // Inicializa com R$1000 antes de cada teste
+    }
+
+    @Test
+    void testDeposito() {
+        conta.depositar(500);
+        assertEquals(1500, conta.getSaldo());
+    }
+
+    @Test
+    void testSaque() {
+        conta.sacar(200);
+        assertEquals(800, conta.getSaldo());
     }
 }
+
 ```
 
 #### @AfterEach
@@ -60,13 +85,31 @@ Executa um código **após cada teste**, útil para limpar dados temporários.
 
 ```java
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-public class CalculadoraTest {
+class BancoDeDadosTest {
+
+    private BancoDeDados banco;
+
+    @BeforeEach
+    void conectarBanco() {
+        banco = new BancoDeDados();
+        banco.conectar();
+    }
+
+    @Test
+    void testInsercaoDados() {
+        banco.inserir("Usuário Teste");
+        assertTrue(banco.existe("Usuário Teste"));
+    }
+
     @AfterEach
-    public void tearDown() {
-        System.out.println("Teste finalizado");
+    void limparBanco() {
+        banco.limparDadosTeste();
     }
 }
+
 ```
 
 #### @BeforeAll
@@ -75,13 +118,24 @@ Executa um código **antes de todos os testes**, geralmente usado para inicializ
 
 ```java
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
-public class BancoDeDadosTest {
+class BancoDeDadosTest {
+
+    private static BancoDeDados banco;
+
     @BeforeAll
-    public static void configurarBancoDeDados() {
-        System.out.println("Configurando banco de dados");
+    static void configurarBanco() {
+        banco = new BancoDeDados();
+        banco.inicializar(); // Cria tabelas e insere dados necessários
+    }
+
+    @Test
+    void testConsultaDados() {
+        assertTrue(banco.consultar("admin"));
     }
 }
+
 ```
 
 #### @AfterAll
@@ -90,13 +144,31 @@ Executa um código **após todos os testes**, útil para liberar recursos.
 
 ```java
 import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
-public class BancoDeDadosTest {
+class BancoDeDadosTest {
+
+    private static BancoDeDados banco;
+
+    @BeforeAll
+    static void configurarBanco() {
+        banco = new BancoDeDados();
+        banco.inicializar();
+    }
+
+    @Test
+    void testInsercaoDados() {
+        banco.inserir("João");
+        assertTrue(banco.consultar("João"));
+    }
+
     @AfterAll
-    public static void limparBancoDeDados() {
-        System.out.println("Limpando banco de dados");
+    static void fecharBanco() {
+        banco.fecharConexao();
     }
 }
+
 ```
 
 #### @Disabled
@@ -105,13 +177,17 @@ Ignora um teste específico, útil para testes temporariamente desativados.
 
 ```java
 import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
-public class CalculadoraTest {
+class EmailServiceTest {
+
     @Test
     @Disabled("Ainda não implementado")
-    public void testMultiplicacao() {
+    void testEnvioEmail() {
+        // Código será implementado futuramente
     }
 }
+
 ```
 
 ---
@@ -161,8 +237,26 @@ assertThrows(ArithmeticException.class, () -> calculadora.dividir(5, 0));
 ```
 
 ---
+## 🔥 **Resumo Rápido**  
+
+| **Anotação**   | **Descrição** |
+|---------------|--------------|
+| `@Test`       | Define um método como um teste unitário. |
+| `@BeforeEach` | Executa antes de cada teste (inicialização). |
+| `@AfterEach`  | Executa depois de cada teste (limpeza). |
+| `@BeforeAll`  | Executa antes de todos os testes (configuração global). |
+| `@AfterAll`   | Executa depois de todos os testes (finalização). |
+| `@Disabled`   | Ignora um teste temporariamente. |
+
+---
 
 ## Conclusão
 
 JUnit é uma ferramenta poderosa para testes unitários em Java. Com suas anotações e métodos, podemos garantir que nosso código funciona corretamente e evitar problemas antes que cheguem ao usuário final.
+
+
+
+
+
+
 
