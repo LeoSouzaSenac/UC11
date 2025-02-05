@@ -1,27 +1,69 @@
-# Aula 2 - JUnit: O que é, Anotações e Métodos Principais
+# **Aula 2 - JUnit: Configuração, Anotações e Métodos Principais**  
 
-## O que é JUnit?
+## **1️⃣ Configurando o JUnit no NetBeans com Gradle**  
 
-JUnit é um **framework de testes unitários para Java** amplamente utilizado. Ele permite que os desenvolvedores escrevam testes automatizados para verificar se pequenos blocos de código funcionam corretamente.
-
-### Por que usar JUnit?
-
-✅ Facilita a automação dos testes.\
-✅ Ajuda a identificar e corrigir erros rapidamente.\
-✅ Permite testes independentes e reprodutíveis.\
-✅ Integra-se facilmente com ferramentas de CI/CD.
+### **Passo 1: Criar um Projeto Gradle no NetBeans**  
+1. Abra o **NetBeans**.  
+2. Vá em **File** > **New Project**.  
+3. Selecione **Gradle** > **Java Application** e clique em **Next**.  
+4. Dê um nome ao projeto e escolha um local para salvá-lo.  
+5. Clique em **Finish**.  
 
 ---
 
-## O que são Anotações no JUnit?
+### **Passo 2: Adicionar Dependências do JUnit**  
 
-No JUnit, as **anotações** são usadas para definir o comportamento dos testes. Elas ajudam a configurar o ambiente antes, durante e depois da execução dos testes.
+1. No NetBeans, abra o arquivo **build.gradle**.  
+2. Adicione a seguinte dependência para o **JUnit 5** dentro de `dependencies {}`:  
 
-### Principais Anotações do JUnit 5
+```gradle
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.9.3'
+}
+```
 
-#### @Test
+3. Salve o arquivo e execute o comando de atualização no terminal do NetBeans:  
 
-Marca um método como um teste unitário.
+```sh
+./gradlew build
+```
+
+Isso garantirá que todas as dependências sejam baixadas corretamente.
+
+---
+
+### **Passo 3: Criar a Estrutura de Testes**  
+
+1. No **NetBeans**, vá até o painel **Projects**.  
+2. Expanda o diretório **src/test/java**.  
+3. Clique com o botão direito na pasta **test** e selecione **New > Java Class**.  
+4. Dê um nome à classe de teste (exemplo: `ContaBancariaTest`) e clique em **Finish**.  
+
+Agora sua estrutura está pronta para começar a escrever testes com JUnit! 🚀  
+
+---
+
+## **2️⃣ O que é JUnit?**  
+
+JUnit é um **framework de testes unitários para Java** amplamente utilizado. Ele permite que os desenvolvedores escrevam testes automatizados para verificar se pequenos blocos de código funcionam corretamente.  
+
+### **Por que usar JUnit?**  
+
+✅ Facilita a automação dos testes.  
+✅ Ajuda a identificar e corrigir erros rapidamente.  
+✅ Permite testes independentes e reprodutíveis.  
+✅ Integra-se facilmente com ferramentas de CI/CD.  
+
+---
+
+## **3️⃣ O que são Anotações no JUnit?**  
+
+No JUnit, as **anotações** são usadas para definir o comportamento dos testes. Elas ajudam a configurar o ambiente antes, durante e depois da execução dos testes.  
+
+### **Principais Anotações do JUnit 5**  
+
+#### **@Test**  
+Marca um método como um teste unitário.  
 
 ```java
 import org.junit.jupiter.api.Test;
@@ -43,12 +85,12 @@ class ContaBancariaTest {
         assertEquals(800, conta.getSaldo(), "O saldo deve ser 800 após o saque.");
     }
 }
-
 ```
 
-#### @BeforeEach
+---
 
-Executa um código **antes de cada teste**, ideal para inicializar objetos.
+#### **@BeforeEach**  
+Executa um código **antes de cada teste**, ideal para inicializar objetos.  
 
 ```java
 import org.junit.jupiter.api.BeforeEach;
@@ -76,12 +118,12 @@ class ContaBancariaTest {
         assertEquals(800, conta.getSaldo());
     }
 }
-
 ```
 
-#### @AfterEach
+---
 
-Executa um código **após cada teste**, útil para limpar dados temporários.
+#### **@AfterEach**  
+Executa um código **após cada teste**, útil para limpar dados temporários.  
 
 ```java
 import org.junit.jupiter.api.AfterEach;
@@ -109,12 +151,12 @@ class BancoDeDadosTest {
         banco.limparDadosTeste();
     }
 }
-
 ```
 
-#### @BeforeAll
+---
 
-Executa um código **antes de todos os testes**, geralmente usado para inicializações globais.
+#### **@BeforeAll**  
+Executa um código **antes de todos os testes**, geralmente usado para inicializações globais.  
 
 ```java
 import org.junit.jupiter.api.BeforeAll;
@@ -135,12 +177,12 @@ class BancoDeDadosTest {
         assertTrue(banco.consultar("admin"));
     }
 }
-
 ```
 
-#### @AfterAll
+---
 
-Executa um código **após todos os testes**, útil para liberar recursos.
+#### **@AfterAll**  
+Executa um código **após todos os testes**, útil para liberar recursos.  
 
 ```java
 import org.junit.jupiter.api.AfterAll;
@@ -168,12 +210,12 @@ class BancoDeDadosTest {
         banco.fecharConexao();
     }
 }
-
 ```
 
-#### @Disabled
+---
 
-Ignora um teste específico, útil para testes temporariamente desativados.
+#### **@Disabled**  
+Ignora um teste específico, útil para testes temporariamente desativados.  
 
 ```java
 import org.junit.jupiter.api.Disabled;
@@ -187,57 +229,52 @@ class EmailServiceTest {
         // Código será implementado futuramente
     }
 }
-
 ```
 
 ---
 
-## Métodos Principais do JUnit
+## **4️⃣ Métodos Principais do JUnit**  
 
-JUnit oferece diversos métodos para validar os resultados esperados nos testes. Alguns dos principais são:
+JUnit oferece diversos métodos para validar os resultados esperados nos testes. Alguns dos principais são:  
 
-### assertEquals
-
-Compara dois valores e verifica se são iguais.
+### **assertEquals**  
+Compara dois valores e verifica se são iguais.  
 
 ```java
 assertEquals(5, calculadora.somar(2, 3));
 ```
 
-### assertNotEquals
-
-Verifica se dois valores **não** são iguais.
+### **assertNotEquals**  
+Verifica se dois valores **não** são iguais.  
 
 ```java
 assertNotEquals(4, calculadora.somar(2, 3));
 ```
 
-### assertTrue
-
-Verifica se uma expressão booleana é verdadeira.
+### **assertTrue**  
+Verifica se uma expressão booleana é verdadeira.  
 
 ```java
 assertTrue(numero > 0);
 ```
 
-### assertFalse
-
-Verifica se uma expressão booleana é falsa.
+### **assertFalse**  
+Verifica se uma expressão booleana é falsa.  
 
 ```java
 assertFalse(numero < 0);
 ```
 
-### assertThrows
-
-Verifica se uma exceção esperada é lançada.
+### **assertThrows**  
+Verifica se uma exceção esperada é lançada.  
 
 ```java
 assertThrows(ArithmeticException.class, () -> calculadora.dividir(5, 0));
 ```
 
 ---
-## 🔥 **Resumo Rápido**  
+
+## **🔥 Resumo Rápido**  
 
 | **Anotação**   | **Descrição** |
 |---------------|--------------|
@@ -250,13 +287,6 @@ assertThrows(ArithmeticException.class, () -> calculadora.dividir(5, 0));
 
 ---
 
-## Conclusão
+## **5️⃣ Conclusão**  
 
-JUnit é uma ferramenta poderosa para testes unitários em Java. Com suas anotações e métodos, podemos garantir que nosso código funciona corretamente e evitar problemas antes que cheguem ao usuário final.
-
-
-
-
-
-
-
+JUnit é uma ferramenta poderosa para testes unitários em Java. Com suas anotações e métodos, podemos garantir que nosso código funciona corretamente e evitar problemas antes que cheguem ao usuário final. 🚀
