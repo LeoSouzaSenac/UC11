@@ -21,7 +21,8 @@ A classe Estoque deve conter os seguintes métodos:
 - **produtoMaisEstocado()**: Retorna o nome do produto com maior quantidade no estoque.
 - **limparEstoque()**: Remove todos os produtos do estoque.
 
-**Dica: Use ArrayList para criar o estoque. [Acesse a aula sobre ArrayLists neste link]([https://github.com/LeoSouzaSenac/UC8/blob/main/Arrays.md])**
+**Dica:** Use `ArrayList` para criar o estoque. [Acesse a aula sobre ArrayLists neste link](https://github.com/LeoSouzaSenac/UC8/blob/main/Arrays.md).
+
 
 ### 3. Criando a Classe de Teste EstoqueTest
 - Criar uma classe de teste chamada **EstoqueTest.java** no diretório adequado.
