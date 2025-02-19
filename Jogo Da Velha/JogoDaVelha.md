@@ -119,21 +119,38 @@ private void marcarJogada(JButton botao, int linha, int coluna) {
 Esta função verifica se há um vencedor após cada jogada. Ela verifica as linhas, colunas e diagonais para ver se algum jogador preencheu toda a linha/coluna/diagonal com seu símbolo ("X" ou "O").
 
 ```java
-    private boolean verificaVitoria() {
-        // Verifica as linhas, colunas e diagonais
-        for (int i = 0; i < 3; i++) {
-            if (tabuleiro[i][0] != null && tabuleiro[i][0].equals(tabuleiro[i][1]) && tabuleiro[i][0].equals(tabuleiro[i][2]))
-                return true;
-            if (tabuleiro[0][i] != null && tabuleiro[0][i].equals(tabuleiro[1][i]) && tabuleiro[0][i].equals(tabuleiro[2][i]))
-                return true;
-        }
-        if (tabuleiro[0][0] != null && tabuleiro[0][0].equals(tabuleiro[1][1]) && tabuleiro[0][0].equals(tabuleiro[2][2]))
-            return true;
-        if (tabuleiro[0][2] != null && tabuleiro[0][2].equals(tabuleiro[1][1]) && tabuleiro[0][2].equals(tabuleiro[2][0]))
-            return true;
+        private boolean verificaVitoria() {
+    // Inicia o método que verifica se há uma vitória no jogo da velha.
 
-        return false;
+    // Verifica as linhas (horizontalmente)
+    for (int i = 0; i < 3; i++) {
+        // Verifica se as três casas da linha i são iguais (não nulas e iguais entre si)
+        if (tabuleiro[i][0] != null && tabuleiro[i][0].equals(tabuleiro[i][1]) && tabuleiro[i][0].equals(tabuleiro[i][2]))
+            // Se as três casas da linha forem iguais, retorna 'true' indicando que houve vitória
+            return true;
     }
+
+    // Verifica as colunas (verticalmente)
+    for (int i = 0; i < 3; i++) {
+        // Verifica se as três casas da coluna i são iguais (não nulas e iguais entre si)
+        if (tabuleiro[0][i] != null && tabuleiro[0][i].equals(tabuleiro[1][i]) && tabuleiro[0][i].equals(tabuleiro[2][i]))
+            // Se as três casas da coluna forem iguais, retorna 'true' indicando que houve vitória
+            return true;
+    }
+
+    // Verifica a diagonal principal (do canto superior esquerdo para o canto inferior direito)
+    if (tabuleiro[0][0] != null && tabuleiro[0][0].equals(tabuleiro[1][1]) && tabuleiro[0][0].equals(tabuleiro[2][2]))
+        // Se as casas da diagonal principal forem iguais, retorna 'true' indicando vitória
+        return true;
+
+    // Verifica a diagonal secundária (do canto superior direito para o canto inferior esquerdo)
+    if (tabuleiro[0][2] != null && tabuleiro[0][2].equals(tabuleiro[1][1]) && tabuleiro[0][2].equals(tabuleiro[2][0]))
+        // Se as casas da diagonal secundária forem iguais, retorna 'true' indicando vitória
+        return true;
+
+    // Se nenhuma das condições anteriores for verdadeira, retorna 'false', indicando que não houve vitória
+    return false;
+}
 ```
 
 ### Função para Reiniciar o Jogo
