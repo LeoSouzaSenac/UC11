@@ -48,6 +48,30 @@ private String[][] tabuleiro = new String[3][3];  // Tabuleiro 3x3
 private int jogadas = 0;  // Contador de jogadas
 private String vez = "X";  // Quem está jogando (X ou O)
 ```
+`private String[][] tabuleiro = new String[3][3];`
+Que tipo de array é esse?
+
+Ele é o que chamamos de Matriz. 
+Uma matriz é uma estrutura de dados usada para armazenar múltiplos valores em uma tabela com várias linhas e colunas. Você pode pensar nela como uma tabela ou uma grade, onde cada "caixa" na tabela armazena um valor.
+
+Por exemplo, uma matriz 3x3 é como uma tabela com 3 linhas e 3 colunas, que pode ser representada assim:
+
+
+1  2  3
+4  5  6
+7  8  9
+
+
+Aqui:
+
+A primeira linha tem os valores 1, 2 e 3.
+A segunda linha tem os valores 4, 5 e 6.
+A terceira linha tem os valores 7, 8 e 9.
+
+Em programação, você acessa os elementos da matriz usando índices, que indicam a posição da linha e da coluna. Por exemplo, matriz[0][2] acessaria o valor na primeira linha e terceira coluna, que é o número 3.
+
+Matrizes são úteis para armazenar e manipular dados que precisam de uma organização em mais de uma dimensão, como no caso do jogo da velha, onde o tabuleiro é representado por uma matriz 3x3.
+
 
 ### Inicializando o Jogo
 
@@ -124,6 +148,23 @@ private void reiniciarJogo() {
     inicializarJogo();  // Reinicia o jogo
 }
 ```
+
+`Component:` 
+É a classe base para todos os componentes de interface gráfica no Swing. Ou seja, ela representa qualquer elemento de UI, como botões, campos de texto, rótulos, etc.
+
+`getContentPane():`
+
+Esse método retorna o painel de conteúdo de um JFrame, que é a área onde você adiciona os componentes da interface gráfica. O JFrame é a janela principal de uma aplicação Java Swing, e o contentPane é a área do JFrane onde você organiza e exibe os componentes dentro dessa janela. Em resumo, ele é a parte visível do JFrame.
+
+`getComponents():`
+
+Esse método retorna um array de objetos Component, que são todos os componentes filhos do contêiner onde o método é chamado. No caso de getContentPane().getComponents(), ele retorna todos os componentes que foram adicionados ao painel de conteúdo do JFrame. Isso pode incluir botões, campos de texto, labels, etc.
+
+`instanceof:`
+
+O operador instanceof é usado para verificar se um objeto é uma instância de uma determinada classe. No exemplo, if (c instanceof JButton) verifica se o componente c é um botão (JButton). Se for, a ação dentro do bloco if será executada. Caso contrário, o código ignora aquele componente.
+
+
 
 ## Passo 4: Conectando a Lógica aos Botões
 
