@@ -107,7 +107,10 @@ private void marcarJogada(JButton botao, int linha, int coluna) {
                 reiniciarJogo();
             } else {
                 // Troca a vez entre os jogadores
-                vez = vez.equals("X") ? "O" : "X";
+               vez = vez.equals("X") ? "O" : "X";
+                
+               
+                
                 lblMensagem.setText("Vez do Jogador " + vez);
             }
         }
