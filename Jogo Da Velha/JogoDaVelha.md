@@ -57,9 +57,9 @@ Uma matriz é uma estrutura de dados usada para armazenar múltiplos valores em 
 Por exemplo, uma matriz 3x3 é como uma tabela com 3 linhas e 3 colunas, que pode ser representada assim:
 
 
-1  2  3
-4  5  6
-7  8  9
+![image](https://github.com/user-attachments/assets/0406dd3b-0683-418f-90b9-a2d5eca741f9)
+
+
 
 
 Aqui:
