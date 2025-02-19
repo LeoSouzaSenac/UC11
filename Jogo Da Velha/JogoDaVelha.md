@@ -44,9 +44,9 @@ Isso criará a estrutura inicial do projeto, com uma classe principal chamada `J
 Na classe `TelaJogo`, você precisará de algumas variáveis para controlar o estado do jogo:
 
 ```java
-private String[][] tabuleiro = new String[3][3];  // Tabuleiro 3x3
-private int jogadas = 0;  // Contador de jogadas
-private String vez = "X";  // Quem está jogando (X ou O)
+private String vez = "X"; // Marca quem está jogando (X ou O)
+private String[][] tabuleiro = new String[3][3]; // Tabuleiro do jogo
+private int jogadas = 0; // Contador de jogadas
 ```
 `private String[][] tabuleiro = new String[3][3];`
 Que tipo de array é esse?
@@ -91,22 +91,27 @@ private void inicializarJogo() {
 Agora, criaremos a lógica que será executada toda vez que um botão do tabuleiro for clicado. Quando um jogador clicar em um botão, o texto do botão será atualizado com "X" ou "O", dependendo da vez do jogador, e a vez passará para o outro jogador.
 
 ```java
-private void fazerJogada(JButton botao, int linha, int coluna) {
-    if (botao.getText().equals("")) {  // Verifica se o botão ainda não foi clicado
-        botao.setText(vez);  // Atualiza o texto do botão
-        tabuleiro[linha][coluna] = vez;  // Atualiza o estado do tabuleiro
-        jogadas++;  // Incrementa o contador de jogadas
+private void marcarJogada(JButton botao, int linha, int coluna) {
+        // Marca a jogada no botão e no tabuleiro
+        if (tabuleiro[linha][coluna] == null) {
+            tabuleiro[linha][coluna] = vez;
+            botao.setText(vez); // Marca o botão com "X" ou "O"
+            jogadas++; // Aumenta o contador de jogadas
 
-        if (verificarVencedor()) {  // Verifica se alguém ganhou
-            lblMensagem.setText("Jogador " + vez + " venceu!");
-        } else if (jogadas == 9) {  // Verifica se o jogo empatou
-            lblMensagem.setText("Empate!");
-        } else {
-            vez = (vez.equals("X")) ? "O" : "X";  // Alterna entre X e O
-            lblMensagem.setText("Vez do Jogador " + vez);
+            // Verifica se alguém venceu
+            if (verificaVitoria()) {
+                //JOptionPane.showMessageDialog(this, "Jogador " + vez + " venceu!");
+                reiniciarJogo();
+            } else if (jogadas == 9) {
+                //JOptionPane.showMessageDialog(this, "Empate!");
+                reiniciarJogo();
+            } else {
+                // Troca a vez entre os jogadores
+                vez = vez.equals("X") ? "O" : "X";
+                lblMensagem.setText("Vez do Jogador " + vez);
+            }
         }
     }
-}
 ```
 
 ### Função para Verificar o Vencedor
@@ -114,21 +119,21 @@ private void fazerJogada(JButton botao, int linha, int coluna) {
 Esta função verifica se há um vencedor após cada jogada. Ela verifica as linhas, colunas e diagonais para ver se algum jogador preencheu toda a linha/coluna/diagonal com seu símbolo ("X" ou "O").
 
 ```java
-private boolean verificarVencedor() {
-    // Verifica linhas e colunas
-    for (int i = 0; i < 3; i++) {
-        if ((tabuleiro[i][0].equals(vez) && tabuleiro[i][1].equals(vez) && tabuleiro[i][2].equals(vez)) ||
-            (tabuleiro[0][i].equals(vez) && tabuleiro[1][i].equals(vez) && tabuleiro[2][i].equals(vez))) {
-            return true;
+    private boolean verificaVitoria() {
+        // Verifica as linhas, colunas e diagonais
+        for (int i = 0; i < 3; i++) {
+            if (tabuleiro[i][0] != null && tabuleiro[i][0].equals(tabuleiro[i][1]) && tabuleiro[i][0].equals(tabuleiro[i][2]))
+                return true;
+            if (tabuleiro[0][i] != null && tabuleiro[0][i].equals(tabuleiro[1][i]) && tabuleiro[0][i].equals(tabuleiro[2][i]))
+                return true;
         }
+        if (tabuleiro[0][0] != null && tabuleiro[0][0].equals(tabuleiro[1][1]) && tabuleiro[0][0].equals(tabuleiro[2][2]))
+            return true;
+        if (tabuleiro[0][2] != null && tabuleiro[0][2].equals(tabuleiro[1][1]) && tabuleiro[0][2].equals(tabuleiro[2][0]))
+            return true;
+
+        return false;
     }
-    // Verifica diagonais
-    if ((tabuleiro[0][0].equals(vez) && tabuleiro[1][1].equals(vez) && tabuleiro[2][2].equals(vez)) ||
-        (tabuleiro[0][2].equals(vez) && tabuleiro[1][1].equals(vez) && tabuleiro[2][0].equals(vez))) {
-        return true;
-    }
-    return false;
-}
 ```
 
 ### Função para Reiniciar o Jogo
