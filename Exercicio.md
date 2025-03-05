@@ -84,8 +84,5 @@ O sistema de cadastro de usuários tem os seguintes campos:
    
 
 
-### **Objetivo do Exercício:**
-- Ajudar os alunos a consolidar os conhecimentos adquiridos sobre a criação de planos de teste.
-- Aplicar práticas de documentação e relatórios de resultados de maneira clara e objetiva.
-- Demonstrar a importância de testar o sistema de maneira abrangente, cobrindo diferentes tipos de teste e técnicas.
+
 
