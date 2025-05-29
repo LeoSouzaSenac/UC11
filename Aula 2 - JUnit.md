@@ -5,7 +5,7 @@
 ### **Passo 1: Criar um Projeto Gradle no NetBeans**  
 1. Abra o **NetBeans**.  
 2. Vá em **File** > **New Project**.  
-3. Selecione **Gradle** > **Java Application** e clique em **Next**.  
+3. Selecione **Gradle** ou **Maven** > **Java Application** e clique em **Next**.  
 4. Dê um nome ao projeto e escolha um local para salvá-lo.  
 5. Clique em **Finish**.  
 
@@ -13,14 +13,55 @@
 
 ### **Passo 2: Adicionar Dependências do JUnit**  
 
-1. No NetBeans, abra o arquivo **build.gradle**.  
-2. Adicione a seguinte dependência para o **JUnit 5** dentro de `dependencies {}`:  
+Claro! Aqui está a **seção atualizada** com as dependências do JUnit **também na versão Maven**, além do Gradle:
+
+---
+
+## **1️⃣ Configurando o JUnit no NetBeans com Gradle ou Maven**
+
+### **Passo 2: Adicionar Dependências do JUnit**
+
+#### ✅ **Se estiver usando *Gradle***:
+
+Abra o arquivo `build.gradle` e adicione dentro do bloco `dependencies {}`:
 
 ```gradle
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter:5.9.3'
 }
 ```
+
+#### ✅ **Se estiver usando *Maven***:
+
+Abra o arquivo `pom.xml` e adicione dentro da tag `<dependencies>`:
+
+```xml
+<dependencies>
+    <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter</artifactId>
+        <version>5.9.3</version>
+        <scope>test</scope>
+    </dependency>
+</dependencies>
+```
+
+---
+
+> ⚠️ **Dica Importante**: Certifique-se de que o *plugin de testes* do Maven esteja configurado corretamente para usar o JUnit 5. Você pode adicionar o seguinte bloco dentro de `<build>` no `pom.xml`:
+
+```xml
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>3.0.0-M8</version>
+        </plugin>
+    </plugins>
+</build>
+```
+
 
 ---
 
