@@ -41,15 +41,15 @@ Testes de software servem para **evitar problemas como esse**, garantindo que os
 
 Imagine que um desenvolvedor escreveu este código em Java:  
 ```java
-public class Usuario {
-    private String nome;
+public class User {
+    private String name;
     
-    public Usuario(String nome) {
-        this.nome = nome;
+    public User(String name) {
+        this.name = name;
     }
     
-    public void exibirNome() {
-        System.out.println(nome);
+    public void showName() {
+        System.out.println(name);
     }
 }
 ```
@@ -59,11 +59,11 @@ public class Usuario {
 
 ✅ **Correção sugerida no Code Review:**  
 ```java
-public Usuario(String nome) {
-    if (nome == null || nome.isEmpty()) {
-        throw new IllegalArgumentException("Nome não pode ser vazio");
+public User(String name) {
+    if (name == null || name.isEmpty()) {
+        throw new IllegalArgumentException("Name cannot be null!");
     }
-    this.nome = nome;
+    this.name = name;
 }
 ```
 Isso é um **teste estático**, pois os erros foram encontrados apenas analisando o código, sem executá-lo.
